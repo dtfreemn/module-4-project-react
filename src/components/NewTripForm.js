@@ -1,4 +1,5 @@
 import React from 'react';
+import { createTrip } from '../services/trip'
 
 class NewTripForm extends React.Component {
   state = {
@@ -56,16 +57,7 @@ class NewTripForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const newBody = JSON.stringify({start_date: this.state.startDate, end_date: this.state.endDate, title: this.state.title, country: this.state.country, city: this.state.city, zip_code: this.state.zipCode, budget: this.state.budget})
-    fetch('http://localhost:3000/api/v1/trips', {
-      method: 'post',
-      body: newBody,
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': JSON.stringify(localStorage.getItem('jwt'))
-      }
-    })
-      .then(resp => resp.json())
+    createTrip(newBody)
       .then(trip => console.log(trip))
   }
 
