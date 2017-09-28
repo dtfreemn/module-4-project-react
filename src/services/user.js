@@ -21,3 +21,7 @@ export function logInUser(userParams) {
     })
       .then(resp => resp.json())
 }
+
+export function logOutUser(){
+  localStorage.removeItem("jwt")
+}

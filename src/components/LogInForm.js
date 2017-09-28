@@ -35,8 +35,8 @@ class LogInForm extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <input type='text' placeholder='username' onChange={this.handleUsernameChange}/>
-        <input type='password' placeholder='password' onChange={this.handlePasswordChange}/>
+        <input type='text' placeholder='username' onChange={this.handleUsernameChange} value={this.state.username}/>
+        <input type='password' placeholder='password' onChange={this.handlePasswordChange} value={this.state.password}/>
         <button type='submit'>Log In</button>
       </form>
     )
