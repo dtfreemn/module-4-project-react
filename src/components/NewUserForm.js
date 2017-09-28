@@ -14,7 +14,16 @@ class NewUserForm extends React.Component {
     e.preventDefault()
     const newBody = JSON.stringify({username: this.state.username, password: this.state.password, first_name: this.state.firstName, last_name: this.state.lastName, email: this.state.email})
     createUser(newBody)
-      .then(user => console.log(user))
+      .then(user => {
+        localStorage.setItem('jwt', user.jwt)
+        this.setState({
+          username: '',
+          password: '',
+          firstName: '',
+          lastName: '',
+          email: ''
+        })
+      })
   }
 
   handleUsernameChange = (e) => {
