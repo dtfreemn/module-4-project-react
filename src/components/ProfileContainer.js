@@ -23,7 +23,7 @@ class ProfileContainer extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className='ui grid'>
       <Profile user={this.state.user}/>
       </div>
     )

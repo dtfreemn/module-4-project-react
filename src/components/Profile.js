@@ -9,8 +9,8 @@ const Profile = ({user}) => {
       )
     } else {
       return(
-        <div>
-          <div>
+        <div className='ten wide column'>
+          <div className='ui card'>
             <p>{user.username}</p>
             <p>{user.first_name}</p>
             <p>{user.last_name}</p>
@@ -18,7 +18,7 @@ const Profile = ({user}) => {
           </div>
           <div>
             <TripContainer trips={user.trips} />
-          </div>  
+          </div>
         </div>
       )
     }

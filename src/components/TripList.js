@@ -10,7 +10,7 @@ const TripList = (props) => {
     allTrips = null
   }
   return(
-    <div>
+    <div className="ui cards">
     {allTrips}
     </div>
   )
