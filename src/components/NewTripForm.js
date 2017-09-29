@@ -109,7 +109,7 @@ class NewTripForm extends React.Component {
           {cityOptions}
         </select>
         <input type='number' placeholder='budget' onChange={this.handleBudgetChange} value={this.state.budget}/>
-        <button type='submit'>Create Trip</button>
+        <button className='ui secondary button'type='submit'>Create Trip</button>
       </form>
     )
   }
