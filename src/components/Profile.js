@@ -1,9 +1,8 @@
 import React from 'react';
 import TripContainer from './TripContainer'
 
-const Profile = ({user}) => {
-    console.log(user)
-    if (!user){
+const Profile = (props) => {
+    if (!props.user){
       return(
         <div></div>
       )
@@ -11,13 +10,13 @@ const Profile = ({user}) => {
       return(
         <div>
           <div className='ui card'  id='profile-card'>
-            <p>{user.username}</p>
-            <p>{user.first_name}</p>
-            <p>{user.last_name}</p>
-            <p>{user.email}</p>
+            <p>{props.user.username}</p>
+            <p>{props.user.first_name}</p>
+            <p>{props.user.last_name}</p>
+            <p>{props.user.email}</p>
           </div>
           <div>
-            <TripContainer trips={user.trips} />
+            <TripContainer trips={props.user.trips} {...props} />
           </div>
         </div>
       )

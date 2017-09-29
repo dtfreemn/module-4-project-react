@@ -24,7 +24,7 @@ class ProfileContainer extends React.Component {
   render(){
     return(
       <div className='ui cards'>
-      <Profile user={this.state.user}/>
+      <Profile user={this.state.user} {...this.props}/>
       </div>
     )
   }

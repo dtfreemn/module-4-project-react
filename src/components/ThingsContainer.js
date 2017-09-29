@@ -1,17 +1,30 @@
 import React from 'react';
 import ThingsList from './ThingsList'
+import ThingsFilter from './ThingsFilter'
 
 class ThingsContainer extends React.Component {
   state = {
-    things: []
+    things: [],
+    filters: ['attractions', 'restaurants', 'hotels', 'activities', 'nightlife', 'activelife', 'arts', 'museums', 'sports'],
+    currentFilter: 'attractions'
   }
 
   componentDidMount() {
     this.fetchThings()
   }
+
+  handleFilterChange = (filter) => {
+    this.setState({
+      currentFilter: filter
+    })
+    this.fetchThings(filter)
+  }
   
-  fetchThings = () => {
-    let newBody = JSON.stringify({city: this.props.city.split(' ').join('+'), country: this.props.country.split(' ').join('+')})
+  fetchThings = (filter) => {
+    if (!filter) {
+      filter = 'attractions'
+    }
+    let newBody = JSON.stringify({city: this.props.city.split(' ').join('+'), country: this.props.country.split(' ').join('+'), filter: filter})
     fetch('http://localhost:3000/api/v1/get-things', {
       method: 'post',
       body: newBody,
@@ -30,6 +43,7 @@ class ThingsContainer extends React.Component {
   render() {
     return (
       <div>
+        <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
         <ThingsList things={this.state.things} />
       </div>
     )
