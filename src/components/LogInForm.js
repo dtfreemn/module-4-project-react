@@ -18,6 +18,8 @@ class LogInForm extends React.Component {
           password: ''
         })
       })
+      .then(() => this.props.history.push('/me'))
+
   }
 
   handleUsernameChange = (e) => {
