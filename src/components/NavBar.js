@@ -9,6 +9,7 @@ const NavBar = () => {
       <span><NavLink className='ui button' to='/login'>Log In</NavLink></span>
       <span><NavLink className='ui button' onClick={logOutUser} to='/login'>Log Out</NavLink></span>
       <span><NavLink className='ui button' to='/me'>Profile</NavLink></span>
+      <span><NavLink className='ui button' to='/trips/new'>Add Trip</NavLink></span>
     </div>
   )
 }

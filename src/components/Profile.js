@@ -8,15 +8,16 @@ const Profile = (props) => {
       )
     } else {
       return(
-        <div>
-          <div className='ui card'  id='profile-card'>
-            <p>{props.user.username}</p>
-            <p>{props.user.first_name}</p>
-            <p>{props.user.last_name}</p>
-            <p>{props.user.email}</p>
-          </div>
-          <div>
-            <TripContainer trips={props.user.trips} {...props} />
+        <div className='profile-wrapper'>
+          <div className='nested-profile-grid'>  
+            <div className='profile-box'>
+              <h2>{props.user.username}</h2>
+              <h3>{props.user.first_name} {props.user.last_name}</h3>
+              <h3>{props.user.email}</h3>
+            </div>
+            <div className='trip-container'>
+              <TripContainer trips={props.user.trips} {...props} />
+            </div>
           </div>
         </div>
       )

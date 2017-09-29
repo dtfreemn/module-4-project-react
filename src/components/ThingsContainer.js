@@ -42,7 +42,7 @@ class ThingsContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='things-container'>
         <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
         <ThingsList things={this.state.things} />
       </div>

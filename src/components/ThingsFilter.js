@@ -7,7 +7,7 @@ const ThingsFilter = (props) => {
   const handleFilterChange = (e) => {
     props.handleFilterChange(e.target.value)
   }
-
+  
   return (
     <select id='things-filter' onChange={handleFilterChange}>
       {options}
