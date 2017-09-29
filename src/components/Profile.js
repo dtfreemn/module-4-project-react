@@ -9,8 +9,8 @@ const Profile = ({user}) => {
       )
     } else {
       return(
-        <div className='sixteen wide column'>
-          <div className='ui card'>
+        <div>
+          <div className='ui card'  id='profile-card'>
             <p>{user.username}</p>
             <p>{user.first_name}</p>
             <p>{user.last_name}</p>

@@ -22,9 +22,8 @@ class ProfileContainer extends React.Component {
 
 
   render(){
-    console.log('rendering profile container')
     return(
-      <div className='ui grid'>
+      <div className='ui cards'>
       <Profile user={this.state.user}/>
       </div>
     )

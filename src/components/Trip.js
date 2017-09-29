@@ -7,11 +7,11 @@ const Trip = (props) => {
     props.handleDelete(props.data)
   }
 
-  const thingsContainer = props.location.pathname.includes('/me/trips/') ? <div className='card'>
+  const thingsContainer = props.location.pathname.includes('/me/trips/') ? <div>
         <ThingsContainer city={props.data.city} country={props.data.country}/>
       </div> : null
 
-  return(  
+  return(
     <div className='ui cards'>
       <div className='card'>
         <div className='header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink></div>

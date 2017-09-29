@@ -7,7 +7,7 @@ const ThingsList = (props) => {
     things = props.things.map((thing, index) => <Thing key={index} thing={thing} />)
   }
   return (
-    <div className='ui card'>
+    <div className='ui cards'>
       {things}
     </div>
   )

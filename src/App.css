@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+body {
+  display: grid;
+}
+
+#profile-card {
+  max-height: 25%;
+  display: inline-flex;
+}
+
+#nav-bar {
+  height:50;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

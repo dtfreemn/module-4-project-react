@@ -10,9 +10,9 @@ const TripList = (props) => {
     allTrips = null
   }
   return(
-    <div className="ui cards">
+    <span className="ui cards">
       {allTrips}
-    </div>
+    </span>
   )
 }
 
