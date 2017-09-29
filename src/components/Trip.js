@@ -6,6 +6,11 @@ const Trip = (props) => {
   const deleteTrip = (event) => {
     props.handleDelete(props.data)
   }
+
+  const thingsContainer = props.location.pathname.includes('/me/trips/') ? <div className='card'>
+        <ThingsContainer city={props.data.city} country={props.data.country}/>
+      </div> : null
+
   return(  
     <div className='ui cards'>
       <div className='card'>
@@ -14,9 +19,7 @@ const Trip = (props) => {
         <div className='description'>Budget: ${props.data.budget}</div>
         <button className='inverted ui secondary button' onClick={deleteTrip}>Delete Trip</button>
       </div>
-      <div className='card'>
-        <ThingsContainer city={props.data.city} country={props.data.country}/>
-      </div>
+      {thingsContainer}
     </div>
   )
 }

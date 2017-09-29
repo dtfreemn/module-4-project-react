@@ -35,13 +35,13 @@ class TripContainer extends React.Component {
   render(){
     return(
       <div>
-        <Route exact path='/me' render={(props) => <TripList trips={this.state.trips} handleDelete = {this.deleteTrip}/>}/>
+        <Route exact path='/me' render={(props) => <TripList trips={this.state.trips} handleDelete = {this.deleteTrip} {...props}/>}/>
         <Route path='/me/trips/:id' render={(props) => {
           console.log(props)
           let id = parseInt(props.match.params.id)
           let trip = this.state.trips.filter(trip => trip.id === id)
           console.log(trip)
-          return <TripList trips={trip} handleDelete={this.deleteTrip} />
+          return <TripList trips={trip} handleDelete={this.deleteTrip} {...props} />
         }} />
       </div>
     )
