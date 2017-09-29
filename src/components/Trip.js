@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Trip = (props) => {
   const deleteTrip = (event) => {
@@ -7,12 +7,12 @@ const Trip = (props) => {
   }
   return(
     <div className='card'>
-    <div className='header'><NavLink to='/trips/new'>{props.data.title}</NavLink></div>
-    <div className='meta'>{props.data.city}, {props.data.country}</div>
-    <div className='description'>Budget: ${props.data.budget}</div>
-    <button className='inverted ui secondary button' onClick={deleteTrip}>Delete Trip</button>
+      <div className='header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink></div>
+      <div className='meta'>{props.data.city}, {props.data.country}</div>
+      <div className='description'>Budget: ${props.data.budget}</div>
+      <button className='inverted ui secondary button' onClick={deleteTrip}>Delete Trip</button>
     </div>
   )
 }
 
-export default Trip
+export default Trip;

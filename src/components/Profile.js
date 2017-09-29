@@ -9,7 +9,7 @@ const Profile = ({user}) => {
       )
     } else {
       return(
-        <div className='ten wide column'>
+        <div className='sixteen wide column'>
           <div className='ui card'>
             <p>{user.username}</p>
             <p>{user.first_name}</p>

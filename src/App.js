@@ -14,8 +14,8 @@ class App extends Component {
        <NavBar />
        <Route exact path='/users/new' component={NewUserForm} />
        <Route exact path='/login' component={LogInForm} />
-       <Route exact path='/trips/new' component={NewTripForm} />
-       <Route exact path='/me' component={ProfileContainer} />
+       <Route exact path='/trips/new' render={(props) => <NewTripForm {...props}/>} />
+       <Route path='/me' component={ProfileContainer} />
       </div>
     );
   }

@@ -67,6 +67,7 @@ class NewTripForm extends React.Component {
       cities: []
     })
     $('#countrySelect').prop('selectedIndex', 0)
+    this.props.history.push('/me')
   }
 
 
