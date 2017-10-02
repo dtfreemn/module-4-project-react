@@ -6,17 +6,21 @@ import NewTripForm from './components/NewTripForm'
 import NavBar from './components/NavBar'
 import { Route } from 'react-router-dom'
 import ProfileContainer from './components/ProfileContainer'
+import Authorize from './components/Authorize'
 
 class App extends Component {
   render() {
+
+    const AuthProfileContainer = Authorize(ProfileContainer)
+    const AuthNewTripForm = Authorize(NewTripForm)
     return (
       <div className="App">
        <Route path='/' render={(props) => <NavBar {...props} />} />
        <div className="ui container">
        <Route exact path='/users/new' render={(props) => <NewUserForm {...props} />} />
        <Route exact path='/login' render={(props) => <LogInForm {...props}/>} />
-       <Route exact path='/trips/new' render={(props) => <NewTripForm {...props}/>} />
-       <Route path='/me' component={ProfileContainer} />
+       <Route exact path='/trips/new' render={(props) => <AuthNewTripForm {...props}/>} />
+       <Route path='/me' render={(props) => <AuthProfileContainer {...props} />} />
        </div>
       </div>
     );
