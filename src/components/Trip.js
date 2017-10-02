@@ -6,8 +6,6 @@ const Trip = (props) => {
   const deleteTrip = (event) => {
     props.handleDelete(props.data)
   }
-  
-  console.log(props.data)
 
   const thingsContainer = props.location.pathname.includes('/me/trips/') ?
         <ThingsContainer tripId={props.data.id} city={props.data.city} country={props.data.country} savedThings={props.data.things}/> : null

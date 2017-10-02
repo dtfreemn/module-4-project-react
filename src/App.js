@@ -23,7 +23,6 @@ class App extends Component {
          <Route exact path='/trips/new' render={(props) => <AuthNewTripForm {...props}/>} />
          <Route path='/me' render={(props) => <AuthProfileContainer {...props} />} />
        </div>
-       <Footer />
       </div>
     );
   }
