@@ -16,7 +16,7 @@ class ThingsContainer extends React.Component {
   }
 
   addSavedThing = (thing) => {
-    const newBody = JSON.stringify({description: thing.price, name: thing.name, url: thing.url, category: this.state.currentFilter, trip_id: this.props.tripId})
+    const newBody = JSON.stringify({description: thing.price, name: thing.name, url: thing.url, category: this.state.currentFilter, trip_id: this.props.tripId, image_url: thing.image_url})
     fetch('http://localhost:3000/api/v1/things', {
       method: 'post',
       body: newBody,
@@ -57,8 +57,8 @@ class ThingsContainer extends React.Component {
 
   }
 
-  deleteSavedThing = (event) => {
-    let thingId=event.target.dataset.id
+  deleteSavedThing = (thing) => {
+    let thingId= thing.id
     fetch(`http://localhost:3000/api/v1/things/${thingId}`, {
       method: 'delete',
       headers: {
@@ -85,10 +85,12 @@ class ThingsContainer extends React.Component {
     return (
       <div className='things-container'>
         <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
-        <ThingsList things={thingsToRender} addSavedThing={this.addSavedThing}/>
-        <div className='saved-things'>
-          {this.state.savedThings.map((thing, index) => <div key={index}><a href={thing.url} target='_blank'>{thing.name}</a><button onClick={this.deleteSavedThing} data-id={thing.id}>X</button><hr /></div>)}
-        </div>
+        <Route exact path='/me/trips/:id' render={(props) => {
+          return (
+              <ThingsList things={thingsToRender} addSavedThing={this.addSavedThing} {...props}/>
+          )
+        }} />
+        <Route exact path='/me/trips/:id/saved' render={(props) => <ThingsList things={this.state.savedThings} deleteSavedThing={this.deleteSavedThing} {...props}/>}/>
       </div>
     )
   }
