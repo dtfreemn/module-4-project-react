@@ -21,9 +21,10 @@ class ThingsContainer extends React.Component {
       body: newBody,
       headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
     })
-      .then(() => {
+      .then(res => res.json())
+      .then((newThing) => {
         this.setState({
-          savedThings: [...this.state.savedThings, thing]
+          savedThings: [...this.state.savedThings, newThing]
         })
       })
   }
@@ -34,7 +35,7 @@ class ThingsContainer extends React.Component {
     })
     this.fetchThings(filter)
   }
-  
+
   fetchThings = (filter) => {
     if (!filter) {
       filter = 'attractions'
@@ -55,13 +56,37 @@ class ThingsContainer extends React.Component {
 
   }
 
+  deleteSavedThing = (event) => {
+    let thingId=event.target.dataset.id
+    fetch(`http://localhost:3000/api/v1/things/${thingId}`, {
+      method: 'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(newSavedThings => {this.setState({
+      savedThings: newSavedThings.things
+    })
+  })
+  }
+
   render() {
+    const thingsToRender = this.state.things.filter(thing => {
+      const thingNames = this.state.savedThings.map(savedThing => {
+        return savedThing.name
+      })
+    return !thingNames.includes(thing.name)
+    })
+
+
     return (
       <div className='things-container'>
         <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
-        <ThingsList things={this.state.things} addSavedThing={this.addSavedThing}/>
+        <ThingsList things={thingsToRender} addSavedThing={this.addSavedThing}/>
         <div className='saved-things'>
-          {this.state.savedThings.map((thing, index) => <div><a href={thing.url}>{thing.name}</a><hr /></div>)}
+          {this.state.savedThings.map((thing, index) => <div><a href={thing.url}>{thing.name}</a><button onClick={this.deleteSavedThing} data-id={thing.id}>X</button><hr /></div>)}
         </div>
       </div>
     )
