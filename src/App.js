@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <NavBar />
+       <Route path='/' render={(props) => <NavBar {...props} />} />
        <div className="ui container">
        <Route exact path='/users/new' component={NewUserForm} />
        <Route exact path='/login' render={(props) => <LogInForm {...props}/>} />

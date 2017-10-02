@@ -89,14 +89,14 @@ class NewTripForm extends React.Component {
     .then(json => {this.setState({cities: json})})
   }
 
-  cityOptions = () => {
+  makeCityOptions = () => {
     return this.state.cities.map((city, index) => <option key={index} value={city.city}>{city.city}</option>)
   }
 
 
   render() {
     const countryOptions = this.makeCountryOptions()
-    const cityOptions = this.cityOptions()
+    const cityOptions = this.makeCityOptions()
     return (
       <form onSubmit={this.handleSubmit}>
         <input type='date' placeholder='start date' onChange={this.handleStartDateChange} value={this.state.startDate}/>

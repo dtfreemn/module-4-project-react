@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 
 class TripContainer extends React.Component {
   state={
-    trips: this.props.trips
+    trips: []
   }
   //
   // componentDidMount(){
@@ -19,6 +19,12 @@ class TripContainer extends React.Component {
   //   .then(res => res.json())
   //   .then(json => {this.setState({trips: json})})
   // }
+
+  componentDidMount() {
+    this.setState({
+      trips: this.props.trips
+    })
+  }
 
   deleteTrip = (trip) => {
     fetch(`http://localhost:3000/api/v1/trips/${trip.id}`, {
