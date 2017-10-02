@@ -39,7 +39,7 @@ class TripContainer extends React.Component {
   }
 
   render(){
-    return(
+    return (
       <div className='nested-trip-container-grid'>
         <Route exact path='/me' render={(props) => <TripList trips={this.state.trips} handleDelete = {this.deleteTrip} {...props}/>}/>
         <Route path='/me/trips/:id' render={(props) => {
