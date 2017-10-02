@@ -15,7 +15,7 @@ class ThingsContainer extends React.Component {
   }
 
   addSavedThing = (thing) => {
-    const newBody = JSON.stringify({description: thing.price, name: thing.name, url: thing.url, category: this.state.currentFilter, trip_id: this.props.tripId})
+    const newBody = JSON.stringify({description: thing.price, name: thing.name, url: thing.url, description: this.state.currentFilter, trip_id: this.props.tripId, image_url: thing.image_url})
     fetch('http://localhost:3000/api/v1/things', {
       method: 'post',
       body: newBody,
