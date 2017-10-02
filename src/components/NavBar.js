@@ -5,19 +5,22 @@ import { logOutUser } from '../services/user';
 
 const NavBar = (props) => {
   
-  let logInOutButton = localStorage.getItem('jwt') ? <span><NavLink className='ui button' onClick={logOutUser} to='/login'>Log Out</NavLink></span> : <span><NavLink className='ui button' to='/login'>Log In</NavLink></span>
+  let logInOutButton = localStorage.getItem('jwt') ? <NavLink className='ui button log-out' onClick={logOutUser} to='/login'>Log Out</NavLink> : <NavLink className='ui button log-in' to='/login'>Log In</NavLink>
 
   if (props.location.pathname === '/login') {
     logInOutButton = null
   }
 
-  const profileButton = localStorage.getItem('jwt') ? <span><NavLink className='ui button' to='/me'>Profile</NavLink></span> : null
+  const profileButton = localStorage.getItem('jwt') ? <NavLink className='ui button profile-button' to='/me'>Profile</NavLink> : null
 
-  const addTripButton = localStorage.getItem('jwt') ? <span><NavLink className='ui button' to='/trips/new'>Add Trip</NavLink></span> : null
+  const addTripButton = localStorage.getItem('jwt') ? <NavLink className='ui button add-trip-button' to='/trips/new'>Add Trip</NavLink> : null
+
+  const signUpButton = localStorage.getItem('jwt') ? null : <NavLink className='ui button sign-up-button' to='/users/new'>Sign Up</NavLink>
   
   return (
-    <div id='nav-bar'>
+    <div className='nav-bar'>
       {logInOutButton}
+      {signUpButton}
       {profileButton}
       {addTripButton}
     </div>

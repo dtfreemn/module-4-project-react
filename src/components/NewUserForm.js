@@ -24,6 +24,7 @@ class NewUserForm extends React.Component {
           email: ''
         })
       })
+      .then(() => this.props.history.push('/me'))
   }
 
   handleUsernameChange = (e) => {

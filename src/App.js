@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
        <Route path='/' render={(props) => <NavBar {...props} />} />
        <div className="ui container">
-       <Route exact path='/users/new' component={NewUserForm} />
+       <Route exact path='/users/new' render={(props) => <NewUserForm {...props} />} />
        <Route exact path='/login' render={(props) => <LogInForm {...props}/>} />
        <Route exact path='/trips/new' render={(props) => <NewTripForm {...props}/>} />
        <Route path='/me' component={ProfileContainer} />
