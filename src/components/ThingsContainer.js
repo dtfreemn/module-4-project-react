@@ -86,7 +86,7 @@ class ThingsContainer extends React.Component {
         <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
         <ThingsList things={thingsToRender} addSavedThing={this.addSavedThing}/>
         <div className='saved-things'>
-          {this.state.savedThings.map((thing, index) => <div><a href={thing.url}>{thing.name}</a><button onClick={this.deleteSavedThing} data-id={thing.id}>X</button><hr /></div>)}
+          {this.state.savedThings.map((thing, index) => <div><a href={thing.url} target='_blank'>{thing.name}</a><button onClick={this.deleteSavedThing} data-id={thing.id}>X</button><hr /></div>)}
         </div>
       </div>
     )

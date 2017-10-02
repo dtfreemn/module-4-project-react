@@ -13,7 +13,7 @@ const Thing = (props) => {
       <div className='content'>
         <div className='thing-title'>
           <a href={props.thing.url} target='_blank'>{props.thing.name}</a>
-          <span onClick={onHeartClick}><i className="heart icon red"></i></span>
+          <span onClick={onHeartClick}><i className="heart icon red save-me"></i></span>
         </div>
       </div>
 
