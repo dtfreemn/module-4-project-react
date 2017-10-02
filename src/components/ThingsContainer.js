@@ -2,6 +2,7 @@ import React from 'react';
 import ThingsList from './ThingsList'
 import ThingsFilter from './ThingsFilter'
 import { Route } from 'react-router-dom'
+import ReactLoading from 'react-loading'
 
 class ThingsContainer extends React.Component {
   state = {

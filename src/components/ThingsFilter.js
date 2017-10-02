@@ -9,9 +9,9 @@ const ThingsFilter = (props) => {
   }
   
   return (
-    <select id='things-filter' onChange={handleFilterChange}>
-      {options}
-    </select>
+      <select id='things-filter' onChange={handleFilterChange}>
+        {options}
+      </select>
   )
 }
 
