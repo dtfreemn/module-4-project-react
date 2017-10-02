@@ -8,7 +8,7 @@ const Trip = (props) => {
   }
 
   const thingsContainer = props.location.pathname.includes('/me/trips/') ?
-        <ThingsContainer city={props.data.city} country={props.data.country}/> : null
+        <ThingsContainer tripId={props.data.id} city={props.data.city} country={props.data.country} savedThings={props.data.things}/> : null
       
   return(
     <div className='trip-list-extra-outer-div'>
