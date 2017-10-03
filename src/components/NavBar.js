@@ -5,17 +5,21 @@ import { logOutUser } from '../services/user';
 
 const NavBar = (props) => {
   
-  let logInOutButton = localStorage.getItem('jwt') ? <NavLink className='ui button log-out' onClick={logOutUser} to='/login'>Log Out</NavLink> : <NavLink className='ui button log-in' to='/login'>Log In</NavLink>
+  let logInOutButton = localStorage.getItem('jwt') ? <NavLink className='ui button log-out grow' onClick={logOutUser} to='/login'>Log Out</NavLink> : <NavLink className='ui button log-in grow' to='/login'>Log In</NavLink>
 
   if (props.location.pathname === '/login') {
     logInOutButton = null
   }
 
-  const profileButton = localStorage.getItem('jwt') && props.location.pathname !== '/me' ? <NavLink className='ui button profile-button' to='/me'>Profile</NavLink> : null
+  const profileButton = localStorage.getItem('jwt') && props.location.pathname !== '/me' ? <NavLink className='ui button profile-button grow' to='/me'>Profile</NavLink> : null
 
-  const addTripButton = localStorage.getItem('jwt') ? <NavLink className='ui button add-trip-button' to='/trips/new'>Add Trip</NavLink> : null
+  const addTripButton = localStorage.getItem('jwt') ? <NavLink className='ui button add-trip-button grow' to='/trips/new'>Add Trip</NavLink> : null
 
-  const signUpButton = localStorage.getItem('jwt') ? null : <NavLink className='ui button sign-up-button' to='/users/new'>Sign Up</NavLink>
+  let signUpButton = localStorage.getItem('jwt') ? null : <NavLink className='ui button sign-up-button grow' to='/users/new'>Sign Up</NavLink>
+
+  if (props.location.pathname === '/users/new') {
+    signUpButton = null
+  }
   
   return (
     <div className='nav-bar'>

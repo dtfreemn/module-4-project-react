@@ -6,7 +6,7 @@ const TripList = (props) => {
   if (props.trips && props.trips.length > 0){
     allTrips = props.trips.map((trip, index)=> <Trip data={trip} key={index} handleDelete={props.handleDelete} {...props}/>)
   } else {
-    allTrips = null
+    allTrips = <h1 className='no-trips'>Click the Add Trip button to create your first trip!!</h1>
   }
   return(
     <div className='trip-list'>

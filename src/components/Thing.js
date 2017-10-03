@@ -15,9 +15,9 @@ const Thing = (props) => {
   const imageUrl = props.thing.image_url ? props.thing.image_url : require('../images/No_image_available.svg')
 
   return (
-    <div className='thing'>
+    <div className='thing grow'>
       <div className='image'>
-        <img className='thing-image' src={imageUrl} alt='yelp' /> </div>
+        <a href={props.thing.url} target='_blank'><img className='thing-image' src={imageUrl} alt='yelp' /></a></div>
       <div className='content'>
         <div className='thing-title'>
           <a href={props.thing.url} target='_blank'>{props.thing.name}</a>

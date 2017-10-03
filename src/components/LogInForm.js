@@ -48,14 +48,19 @@ class LogInForm extends React.Component {
   render() {
     const errorMessage = this.state.currentError ? <h2 className='error-message'>{this.state.currentError}</h2> : null
     return(
-      <form className='form' onSubmit={this.handleSubmit}>
-        {errorMessage}
-        <input type='text' placeholder='username' onChange={this.handleUsernameChange} value={this.state.username}/>
-        <br/><br/>
-        <input type='password' placeholder='password' onChange={this.handlePasswordChange} value={this.state.password}/>
-        <br/><br/>
-        <button className='ui secondary button' type='submit'>Log In</button>
-      </form>
+      <div>
+        <form className='form' onSubmit={this.handleSubmit}>
+          {errorMessage}
+          <input type='text' placeholder='          username' onChange={this.handleUsernameChange} value={this.state.username}/>
+          <br/><br/>
+          <input type='password' placeholder='          password' onChange={this.handlePasswordChange} value={this.state.password}/>
+          <br/><br/>
+          <button className='ui secondary button' type='submit'>Log In</button>
+        </form>
+        <div>
+        <img src={require('../images/tt-logo.png')} />
+        </div>
+      </div>
     )
   }
 

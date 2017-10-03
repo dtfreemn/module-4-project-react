@@ -59,14 +59,17 @@ class NewUserForm extends React.Component {
 
   render() {
     return(
-      <form className='form' onSubmit={this.handleSubmit}>
-        <input type='text' placeholder='username' value={this.state.username} onChange={this.handleUsernameChange}/><br/><br/>
-        <input type='password' placeholder='password' value={this.state.password} onChange={this.handlePasswordChange}/><br/><br/>
-        <input type='text' placeholder='first name' value={this.state.firstName} onChange={this.handleFirstNameChange}/><br/><br/>
-        <input type='text' placeholder='last name' value={this.state.lastName} onChange={this.handleLastNameChange}/><br/><br/>
-        <input type='text' placeholder='email' value={this.state.email} onChange={this.handleEmailChange}/><br/><br/>
-        <input className='ui secondary button' type='submit' value='Join!'/>
-      </form>
+      <div>
+        <form className='form' onSubmit={this.handleSubmit}>
+          <input type='text' placeholder='          username' value={this.state.username} onChange={this.handleUsernameChange}/><br/><br/>
+          <input type='password' placeholder='          password' value={this.state.password} onChange={this.handlePasswordChange}/><br/><br/>
+          <input type='text' placeholder='          first name' value={this.state.firstName} onChange={this.handleFirstNameChange}/><br/><br/>
+          <input type='text' placeholder='          last name' value={this.state.lastName} onChange={this.handleLastNameChange}/><br/><br/>
+          <input type='text' placeholder='             email' value={this.state.email} onChange={this.handleEmailChange}/><br/><br/>
+          <input className='ui secondary button' type='submit' value='Join!'/>
+        </form>
+        <img src={require('../images/tt-logo.png')} />
+      </div>
     )
   }
 }
