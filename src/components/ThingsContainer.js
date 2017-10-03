@@ -2,14 +2,14 @@ import React from 'react';
 import ThingsList from './ThingsList'
 import ThingsFilter from './ThingsFilter'
 import { Route } from 'react-router-dom'
-import ReactLoading from 'react-loading'
 
 class ThingsContainer extends React.Component {
   state = {
     things: [],
     filters: ['attractions', 'restaurants', 'hotels', 'activities', 'nightlife', 'activelife', 'arts', 'museums', 'sports'],
     currentFilter: 'attractions',
-    savedThings: [...this.props.savedThings]
+    savedThings: [...this.props.savedThings],
+    errors: []
   }
 
   componentDidMount() {
@@ -52,9 +52,17 @@ class ThingsContainer extends React.Component {
       }
     })
       .then(resp => resp.json())
-      .then(newThings => this.setState({
-        things: newThings.businesses
-      }))
+      .then(newThings => {
+        if (newThings.businesses) {
+          this.setState({
+            things: newThings.businesses
+          })
+        } else if (newThings.error) {
+          this.setState({
+            errors: ["Yelp was unable to find any options for this location. Sorry!"]
+          }, () => console.log(this.state))
+        }
+      })
 
   }
 
@@ -81,19 +89,35 @@ class ThingsContainer extends React.Component {
       })
     return !thingNames.includes(thing.name)
     })
+    
+    if (this.state.errors.length > 0) {
+      return (
+        <ThingsList errors={this.state.errors} />
+        )
+    }
 
-
+    if (this.state.things.length > 0) {
     return (
       <div className='things-container'>
-        <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
         <Route exact path='/me/trips/:id' render={(props) => {
           return (
+            <span>
+              <ThingsFilter filters={this.state.filters} handleFilterChange={this.handleFilterChange}/>
               <ThingsList things={thingsToRender} addSavedThing={this.addSavedThing} {...props}/>
+            </span>
           )
         }} />
-        <Route exact path='/me/trips/:id/saved' render={(props) => <ThingsList things={this.state.savedThings} deleteSavedThing={this.deleteSavedThing} {...props}/>}/>
+        <Route exact path='/me/trips/:id/saved' render={(props) => {
+          return (
+            <div>
+            <div className='space-holder'>   </div>
+            <ThingsList things={this.state.savedThings} deleteSavedThing={this.deleteSavedThing} errors={this.state.errors} {...props}/>
+            </div>)}}/>
       </div>
-    )
+    )} else {
+      return (
+        <div></div>)
+    }
   }
 }
 

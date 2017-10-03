@@ -19,8 +19,11 @@ const NavBar = (props) => {
   
   return (
     <div className='nav-bar'>
+
       {logInOutButton}
       {signUpButton}
+      <span className='trip-tracker'>Trip•Tracker </span>
+      <img className='logo-guy' src={require('../images/tt-logo.png')} />
       {profileButton}
       {addTripButton}
     </div>

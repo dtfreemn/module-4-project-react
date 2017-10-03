@@ -102,16 +102,16 @@ class NewTripForm extends React.Component {
     const cityOptions = this.makeCityOptions()
     return (
       <form className='form new-trip-form' onSubmit={this.handleSubmit}>
-        <input type='date' placeholder='start date' onChange={this.handleStartDateChange} value={this.state.startDate}/><br/><br/>
-        <input type='date' placeholder='end date' onChange={this.handleEndDateChange} value={this.state.endDate}/><br/><br/>
-        <input type='text' placeholder='name of trip' onChange={this.handleTitleChange} value={this.state.title}/><br/><br/>
-        <select className='ui selection dropdown' id='countrySelect' onChange={this.handleCountryChange}>
+        <input type='date' placeholder='start date' onChange={this.handleStartDateChange} value={this.state.startDate} required/><br/><br/>
+        <input type='date' placeholder='end date' onChange={this.handleEndDateChange} value={this.state.endDate} required/><br/><br/>
+        <input type='text' placeholder='name of trip' onChange={this.handleTitleChange} value={this.state.title} required/><br/><br/>
+        <select className='ui selection dropdown' id='countrySelect' onChange={this.handleCountryChange} required>
           {countryOptions}
         </select><br/><br/>
-        <select className='ui selection dropdown' id='citySelect' onChange={this.handleCityChange}>
+        <select className='ui selection dropdown' id='citySelect' onChange={this.handleCityChange} required>
           {cityOptions}
         </select><br/><br/>
-        <input type='number' placeholder='budget' onChange={this.handleBudgetChange} value={this.state.budget}/><br/><br/>
+        <input type='number' placeholder='budget' onChange={this.handleBudgetChange} value={this.state.budget} required/><br/><br/>
         <button className='ui secondary button' type='submit'>Create Trip</button>
       </form>
     )

@@ -9,7 +9,7 @@ const ThingsFilter = (props) => {
   }
   
   return (
-      <select id='things-filter' onChange={handleFilterChange}>
+      <select className='ui selection dropdown' id='things-filter' onChange={handleFilterChange}>
         {options}
       </select>
   )

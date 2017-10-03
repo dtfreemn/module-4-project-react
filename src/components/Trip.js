@@ -24,7 +24,8 @@ const Trip = (props) => {
   return(
     <div className='trip-list-extra-outer-div'>
       <div className='trip-box'>
-        <h1 className='trip-header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink></h1>{showSavedLink}
+        <h1 className='trip-header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink></h1>
+        {showSavedLink}
         <h2 className='meta'>{props.data.city}, {props.data.country}</h2>
         <h2 className='description'>Budget: ${props.data.budget}</h2>
         <button className='inverted ui secondary button' onClick={deleteTrip}>Delete Trip</button>

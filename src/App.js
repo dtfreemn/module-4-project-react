@@ -7,7 +7,6 @@ import NavBar from './components/NavBar'
 import { Route } from 'react-router-dom'
 import ProfileContainer from './components/ProfileContainer'
 import Authorize from './components/Authorize'
-import Footer from './components/Footer'
 
 class App extends Component {
   render() {
