@@ -11,8 +11,14 @@ class NewTripForm extends React.Component {
     country: '',
     city: '',
     budget: '',
-    countries: countryList,
+    countries: [],
     cities: []
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/api/v1/countries')
+    .then(res => res.json())
+    .then(json => this.setState({countries: json}))
   }
 
   handleStartDateChange = (e) => {
