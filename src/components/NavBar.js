@@ -11,7 +11,7 @@ const NavBar = (props) => {
     logInOutButton = null
   }
 
-  const profileButton = localStorage.getItem('jwt') ? <NavLink className='ui button profile-button' to='/me'>Profile</NavLink> : null
+  const profileButton = localStorage.getItem('jwt') && props.location.pathname !== '/me' ? <NavLink className='ui button profile-button' to='/me'>Profile</NavLink> : null
 
   const addTripButton = localStorage.getItem('jwt') ? <NavLink className='ui button add-trip-button' to='/trips/new'>Add Trip</NavLink> : null
 

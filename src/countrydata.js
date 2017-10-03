@@ -63,6 +63,7 @@ export const countryList = [
   {
     "id": 16,
     "name": "Malaysia"
+  },
   {
     "id": 17,
     "name": "Mexico"
@@ -82,6 +83,7 @@ export const countryList = [
   {
     "id": 21,
     "name": "Poland"
+  },
   {
     "id": 22,
     "name": "Portugal"

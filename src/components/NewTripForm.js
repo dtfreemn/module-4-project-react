@@ -73,7 +73,7 @@ class NewTripForm extends React.Component {
 
   makeCountryOptions = () => {
     let countries = this.state.countries.map((country, index) => <option value={country.name} key={index}>{country.name}</option>)
-    countries.unshift(<option key='default'>Please Select a Country</option>)
+    countries.unshift(<option key='default'>Please Select a Country From Yelp</option>)
     return countries
   }
 
