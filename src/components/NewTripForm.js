@@ -34,9 +34,9 @@ class NewTripForm extends React.Component {
   }
 
   handleCountryChange = (e) => {
-    this.setState({
-      country: e.target.value
-    })
+    // this.setState({
+    //   country: e.target.value
+    // })
     this.fetchCities(e.target.value)
   }
 
@@ -72,25 +72,25 @@ class NewTripForm extends React.Component {
 
 
   makeCountryOptions = () => {
-    let countries = this.state.countries.map((country, index) => <option value={country.name} key={index}>{country.name}</option>)
+    let countries = this.state.countries.map((country, index) => <option value={country.id} key={index} name={country.name}>{country.name}</option>)
     countries.unshift(<option key='default'>Please Select a Country From Yelp</option>)
     return countries
   }
 
-  fetchCities = (country) => {
-    fetch(`https://andruxnet-world-cities-v1.p.mashape.com/?query=${country.split(" ").join('+')}&searchby=country`, {
+  fetchCities = (country_id) => {
+    fetch(`http://localhost:3000/api/v1/countries/${country_id}`, {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'X-Mashape-Key': 'XN2RXLsJUDmshULXYqHy1PUTfuifp1mikzajsnCNgqHLt8PdVM'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => res.json())
-    .then(json => {this.setState({cities: json})})
+    .then(json => {this.setState({cities: json.cities, country: json.country.name})})
   }
 
   makeCityOptions = () => {
-    let cities = this.state.cities.map((city, index) => <option key={index} value={city.city}>{city.city}</option>)
+    let cities = this.state.cities.map((city, index) => <option key={index} value={city.name}>{city.name}</option>)
     if (cities.length > 0) {
       cities.unshift(<option key='default'>Please Select a City</option>)
     }

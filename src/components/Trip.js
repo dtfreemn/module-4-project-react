@@ -9,7 +9,7 @@ const Trip = (props) => {
 
   const thingsContainer = props.location.pathname.includes('/me/trips/') ?
         <ThingsContainer tripId={props.data.id} city={props.data.city} country={props.data.country} savedThings={props.data.things}/> : null
-   
+
   let showSavedLink
   if (props.location.pathname === '/me/trips/' + props.data.id) {
     showSavedLink = <span><h2><NavLink to={'/me/trips/' + props.data.id + '/saved'}>See Your Saved Activities!</NavLink></h2></span>
@@ -18,8 +18,6 @@ const Trip = (props) => {
   } else {
     showSavedLink = null
   }
-
-
 
   return(
     <div className='trip-list-extra-outer-div'>
