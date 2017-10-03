@@ -53,6 +53,14 @@ export const countryList = [
     "name": "Hong Kong"
   },
   {
+    "id": 33,
+    "name": "Iceland"
+  },
+  {
+    "id": 23,
+    "name": "Ireland"
+  },
+  {
     "id": 14,
     "name": "Italy"
   },
@@ -89,10 +97,6 @@ export const countryList = [
     "name": "Portugal"
   },
   {
-    "id": 23,
-    "name": "Ireland"
-  },
-  {
     "id": 24,
     "name": "Singapore"
   },
@@ -117,6 +121,10 @@ export const countryList = [
     "name": "The Netherlands"
   },
   {
+    "id": 34,
+    "name": "Trinidad and Tobago"
+  },
+  {
     "id": 30,
     "name": "Turkey"
   },
@@ -127,13 +135,5 @@ export const countryList = [
   {
     "id": 32,
     "name": "United States"
-  },
-  {
-    "id": 33,
-    "name": "Iceland"
-  },
-  {
-    "id": 34,
-    "name": "Trinidad and Tobago"
   }
 ]
