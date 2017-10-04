@@ -68,7 +68,7 @@ class NewUserForm extends React.Component {
           <input type='text' placeholder='             email' value={this.state.email} onChange={this.handleEmailChange}/><br/><br/>
           <input className='ui secondary button' type='submit' value='Join!'/>
         </form>
-        <img src={require('../images/tt-logo.png')} />
+        <img src={require('../images/tt-logo.png')} alt='logo-guy' />
       </div>
     )
   }

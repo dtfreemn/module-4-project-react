@@ -58,7 +58,7 @@ class LogInForm extends React.Component {
           <button className='ui secondary button' type='submit'>Log In</button>
         </form>
         <div>
-        <img src={require('../images/tt-logo.png')} />
+        <img src={require('../images/tt-logo.png')} alt='logo-guy'/>
         </div>
       </div>
     )

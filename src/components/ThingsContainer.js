@@ -14,6 +14,7 @@ class ThingsContainer extends React.Component {
 
   componentDidMount() {
     this.fetchThings()
+    console.log(this.props)
   }
 
   addSavedThing = (thing) => {
@@ -113,6 +114,7 @@ class ThingsContainer extends React.Component {
             <div className='space-holder'>   </div>
             <ThingsList things={this.state.savedThings} deleteSavedThing={this.deleteSavedThing} errors={this.state.errors} {...props}/>
             </div>)}}/>
+        <Route exact path='/me/trips/:id/map' render={(props) => <iframe className='framed' src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyC_3kAbmqilTJZvJKk3YJVnkN5CC1l1ZIQ&q=${this.props.city}+${this.props.country}`}/>} />
       </div>
     )} else {
       return (

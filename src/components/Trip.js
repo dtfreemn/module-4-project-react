@@ -11,7 +11,7 @@ const Trip = (props) => {
         <ThingsContainer tripId={props.data.id} city={props.data.city} country={props.data.country} savedThings={props.data.things}/> : null
 
   let showSavedLink
-  if (props.location.pathname === '/me/trips/' + props.data.id) {
+  if (props.location.pathname === '/me/trips/' + props.data.id || props.location.pathname === '/me/trips/' + props.data.id + '/map') {
     showSavedLink = <span><h2><NavLink className='show-saved-link' to={'/me/trips/' + props.data.id + '/saved'}>*See Your Saved Activities!*</NavLink></h2></span>
   } else if (props.location.pathname.includes('/saved')) {
     showSavedLink = <span><h2><NavLink className='show-saved-link' to={'/me/trips/' + props.data.id}>Add More Activities!</NavLink></h2></span>
@@ -30,7 +30,7 @@ const Trip = (props) => {
   return(
     <div className='trip-list-extra-outer-div'>
       <div className={colorClass}>
-        <h1 className='trip-header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink></h1>
+        <h1 className='trip-header'><NavLink to={'/me/trips/' + props.data.id} >{props.data.title}</NavLink> <NavLink to={'/me/trips/' + props.data.id + '/map'}>(map)</NavLink></h1>
         <h3 className='trip-date'>{formatDate(props.data.start_date)} <i className="long arrow right icon"></i>{formatDate(props.data.end_date)}</h3>
         {showSavedLink}
         <h2 className='meta'>{props.data.city}, {props.data.country}</h2>
