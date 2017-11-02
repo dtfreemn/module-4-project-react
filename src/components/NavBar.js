@@ -23,7 +23,6 @@ const NavBar = (props) => {
   
   return (
     <div className='nav-bar'>
-
       {logInOutButton}
       {signUpButton}
       <span className='trip-tracker'>Trip•Tracker </span>

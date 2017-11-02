@@ -103,7 +103,7 @@ select {
 }
 
 .show-saved-link {
-  color: red;
+  color: blue;
 }
 
 .show-saved-link:hover {
